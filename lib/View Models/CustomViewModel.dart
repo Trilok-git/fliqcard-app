@@ -88,6 +88,9 @@ class CustomViewModel extends ChangeNotifier {
     "0"
   ];
 
+  List<String> ListOfYears = ["2020", "2021", "2022", "2023"];
+  String selectedYear = "2023";
+
   List<BarChartModel> dataList = [];
 
   List<TransactionsParser> transactionsList = [];
@@ -268,7 +271,7 @@ class CustomViewModel extends ChangeNotifier {
     return appVersionParser;
   }
 
-  Future getData() async {
+  Future getData([year]) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     this.userData = null;
@@ -288,7 +291,7 @@ class CustomViewModel extends ChangeNotifier {
     this.dataList.clear();
     this.slug_list.clear();
 
-    final response = await WebService().getData(prefs.getString('id'));
+    final response = await WebService().getData(prefs.getString('id'),year);
 
     if (response != "error") {
       var responseDecoded = jsonDecode(utf8.decode(response.bodyBytes));

@@ -110,9 +110,9 @@ class WebService {
     }
   }
 
-  Future getData(String id) async {
+  Future getData(String id, [year]) async {
     try {
-      Map data = {"id": id, "source": Platform.isAndroid ? "android" : "ios"};
+      Map data = {"id": id, "year": year?? "2023", "source": Platform.isAndroid ? "android" : "ios"};
 
       var body = json.encode(data);
       print(body);

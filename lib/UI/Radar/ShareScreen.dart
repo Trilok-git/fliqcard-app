@@ -320,9 +320,9 @@ class _ShareScreenState extends State<ShareScreen> {
                                       providerListener.vcardData.slug != "") {
                                     Share.share(
                                         "Check out my business card and click add to contact to save that for future\n\n\n" +
-                                            ("https://fliqcard.com/id.php?name=" +
-                                                providerListener
-                                                    .vcardData.slug));
+                                            ("https://fliqcard.com/id.php?"
+                                                "id=" + providerListener.vcardData.userId
+                                                + "&&name=" + providerListener.vcardData.slug));
                                   } else {
                                     Share.share(
                                         "Check out my business card and click add to contact to save that for future\n\n\n" +
@@ -366,10 +366,9 @@ class _ShareScreenState extends State<ShareScreen> {
                                   if (providerListener.vcardData.slug != null &&
                                       providerListener.vcardData.slug != "") {
                                     Clipboard.setData(ClipboardData(
-                                        text:
-                                            "https://fliqcard.com/id.php?name=" +
-                                                providerListener
-                                                    .vcardData.slug));
+                                        text: "https://fliqcard.com/id.php?"
+                                            "id=" + providerListener.vcardData.userId
+                                            + "&&name=" + providerListener.vcardData.slug));
                                   } else {
                                     Clipboard.setData(ClipboardData(
                                         text:

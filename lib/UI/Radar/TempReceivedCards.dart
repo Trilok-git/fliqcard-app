@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:ui';
 
+import 'package:camera/camera.dart';
 import 'package:fliqcard/Helpers/constants.dart';
 import 'package:fliqcard/Helpers/helper.dart';
 import 'package:fliqcard/View%20Models/CustomViewModel.dart';
@@ -367,15 +369,30 @@ class _TempReceivedCardsState extends State<TempReceivedCards> {
                             child: commonTitleSmallBold(context,
                                 "Shared FliQCard from Nearby users will be listed here!"),
                           ),
-                          Container(
-                            width: 200,
-                            height: 200,
-                            child: Center(
-                              child: Image.asset(
-                                "assets/animation.gif",
-                              ), //Icon(Icons.location_on, size: 70,color: Colors.black, ),
+                          Opacity(
+                            opacity: 0.8,
+                            child: Container(
+                              width: 300,
+                              height: 300,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage('assets/radar.gif'),
+                                ),
+                              ),
                             ),
                           ),
+                          // Container(
+                          //   width: 200,
+                          //   height: 200,
+                          //   child: Center(
+                          //     child: Image.asset(
+                          //       "assets/radar.gif",
+                          //     ), //Icon(Icons.location_on, size: 70,color: Colors.black, ),
+                          //   ),
+                          // ),
                           //commonTitle(context, "Receiving..."),
                           SizedBox(
                             height: 1,

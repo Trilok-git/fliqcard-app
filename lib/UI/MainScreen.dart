@@ -2283,6 +2283,41 @@ class _MainScreenState extends State<MainScreen> {
                         padding: EdgeInsets.only(left: 10, right: 10),
                         child: LineChartSample()),*/
 
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              DropdownButton(
+                                value: providerListener.selectedYear,
+                                icon: const Icon(Icons.arrow_downward),
+                                elevation: 16,
+                                iconSize: 20,
+                                style: const TextStyle(color: Colors.deepPurple),
+                                underline: Container(
+                                  height: 2,
+                                  color: Colors.deepPurpleAccent,
+                                ),
+                                onChanged: (value) {
+                                  providerListener.selectedYear = value;
+                                  Provider.of<CustomViewModel>(context, listen: false)
+                                      .getData(value).then((value) {});
+                                },
+                                items: providerListener.ListOfYears.map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+
+
+                              ),
+                            ],
+                          ),
+                        ),
+
+
                         Column(
                           children: [
                             providerListener.dataList.length > 0

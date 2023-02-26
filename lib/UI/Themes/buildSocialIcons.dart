@@ -304,7 +304,10 @@ Widget buildSocialIcons(BuildContext context) {
                     providerListener.vcardData.telegram_link != ""
                 ? InkWell(
                     onTap: () {
-                      _launchURL(providerListener.vcardData.telegram_link);
+                        launchUrl(
+                            Uri.parse("tg://resolve?phone=+91"+providerListener.vcardData.telegram_link.replaceAll("+91","")),
+                            mode : LaunchMode.externalNonBrowserApplication
+                        );
                     },
                     child: Container(
                       width: 42,
