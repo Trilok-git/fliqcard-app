@@ -238,12 +238,14 @@ class _VirtualBackgroundsState extends State<VirtualBackgrounds> {
                                       child: Container(
                                         height: 70.0,
                                         width: 70.0,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage('assets/logo.png'),
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
+                                        // decoration: BoxDecoration(
+                                        //   image: DecorationImage(
+                                        //     image: NetworkImage(providerListener.vcardData.logoImagePath),
+                                        //     // AssetImage('assets/logo.png'),
+                                        //     fit: BoxFit.fill,
+                                        //   ),
+                                        // ),
+                                        child: Image.network("https://fliqcard.com/digitalcard/assets/" + providerListener.vcardData.logoImagePath,fit: BoxFit.fill,),
                                       ),
                                     ),
                                     Container(

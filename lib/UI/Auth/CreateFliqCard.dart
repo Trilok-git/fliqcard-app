@@ -39,7 +39,8 @@ class _CreateFliqCardState extends State<CreateFliqCard> {
   TextEditingController refcodeController = TextEditingController();
 
   List<CountriesListParser> countriesList = [];
-  String country = "+91";
+  String country = "+1";
+  String countryName = "US";
 
   bool _obscureText = true;
   final picker = ImagePicker();
@@ -59,6 +60,13 @@ class _CreateFliqCardState extends State<CreateFliqCard> {
   }
 
   Future _pickProfileImageInsight() async {
+
+    // List<XFile> images = await picker.pickMultiImage(
+    //   maxWidth: maxWidth,
+    //   maxHeight: maxHeight,
+    //   imageQuality: quality,
+    // );
+
     try {
       List<Media> _listImagePaths = await ImagePickers.pickerPaths(
           galleryMode: GalleryMode.image,
@@ -203,7 +211,7 @@ class _CreateFliqCardState extends State<CreateFliqCard> {
     "Add your phone number",
     "Next, add your title and your company",
     "Choose a picture of yourself",
-    "Now, enter a login email,\npreferably your personal\nemail address"
+    "Now, enter a login email"
   ];
 
   int _curr = 0;
@@ -513,7 +521,7 @@ class _CreateFliqCardState extends State<CreateFliqCard> {
                                           ),
                                         ),*/
                                         prefixIcon: Container(
-                                          width: 70,
+                                          width: 75,
                                           child: Center(
                                             child: InkWell(
                                               onTap: () {
@@ -579,26 +587,31 @@ class _CreateFliqCardState extends State<CreateFliqCard> {
                                                   ),
                                                   onSelect: (Country OBJ) {
                                                     setState(() {
-                                                      country = "+" +
-                                                          (OBJ.phoneCode ?? 1)
-                                                              .toString();
+                                                      country = "+" + (OBJ.phoneCode ?? 1).toString();
+                                                      countryName = OBJ.countryCode;
                                                     });
                                                   },
                                                 );
                                               },
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
-                                                    right: 10),
+                                                    right: 3),
                                                 child: Container(
-                                                    child: Text(
+                                                    child: Row(
+                                                      children: [
+                                                        Text(countryName.toString(), style: TextStyle(fontSize: 15, color: Color(COLOR_PRIMARY), fontWeight: FontWeight.w600),),
+                                                        SizedBox(width: 7,),
+                                                        Text(
                                                   (country).toString(),
                                                   style: TextStyle(
-                                                      fontSize: 15,
-                                                      color:
-                                                          Color(COLOR_PRIMARY),
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                                )),
+                                                          fontSize: 15,
+                                                          color:
+                                                              Color(COLOR_PRIMARY),
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                ),
+                                                      ],
+                                                    )),
                                               ),
                                             ),
                                           ),

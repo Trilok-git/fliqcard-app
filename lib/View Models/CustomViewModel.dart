@@ -185,8 +185,10 @@ class CustomViewModel extends ChangeNotifier {
 
   Future loginAccount(String email, String password) async {
     this.userData = null;
+    print("before.....");
     final response = await WebService().loginAccount(email, password);
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    print("after.....");
 
     if (response != "error") {
       var responseDecoded = jsonDecode(utf8.decode(response.bodyBytes));
@@ -194,11 +196,13 @@ class CustomViewModel extends ChangeNotifier {
       var responseDecodedData = responseDecoded['data'].toString();
 
       if (responseDecodedStatus == "false") {
+        print("falseeeee");
         notifyListeners();
         return responseDecodedData;
       } else if (responseDecodedStatus == "true") {
         prefs.setString("id", responseDecoded['data'][0]['id'].toString());
         final data = responseDecoded['data'][0];
+        debugPrint(data.toString());
         this.userData = UserDataParser.fromJson(data);
 
         notifyListeners();
@@ -415,7 +419,7 @@ class CustomViewModel extends ChangeNotifier {
         return "error";
       }
     } else {
-      print("***error");
+      print("***error in getdata");
       notifyListeners();
       return "error";
     }

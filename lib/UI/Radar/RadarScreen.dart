@@ -177,7 +177,7 @@ class _RadarScreenState extends State<RadarScreen> {
                           ),
                           SizedBox(width: 15),
                           commonTitleSmallBold(
-                              context, "Receive using the Radar"),
+                              context, "Make visible"),
                         ],
                       ),
                     ),

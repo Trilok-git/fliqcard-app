@@ -61,7 +61,9 @@ class WebService {
           },
           body: body);
 
+
       if (response.statusCode == 200) {
+        print(response.body);
         return response;
       } else {
         return "error";
@@ -122,6 +124,7 @@ class WebService {
             "Content-Type": "application/json",
           },
           body: body);
+      print(response.statusCode);
 
       if (response.statusCode == 200) {
         print(response.body);

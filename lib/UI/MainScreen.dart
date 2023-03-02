@@ -512,7 +512,7 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               Row(
                 children: [
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
                       _scaffoldKey.currentState.openDrawer();
                     },

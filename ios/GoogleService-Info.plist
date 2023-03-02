@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>144201602018-1j9uou24krdarr3lpj16atgc9gbl6907.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144201602018-1j9uou24krdarr3lpj16atgc9gbl6907</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>144201602018-8sf1oh6sns22p3ed13qacjgq613hufcd.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJBNFhMtpk7wIXES6poILh2E27joU23Hw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144201602018</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fliqcard.app</string>
+	<key>PROJECT_ID</key>
+	<string>vcard-161cc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vcard-161cc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144201602018:ios:54b51c98dbdcbc28611fbb</string>
+</dict>
+</plist>

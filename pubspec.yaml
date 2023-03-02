@@ -28,7 +28,7 @@ dependencies:
   shared_preferences: ^2.0.6
   salomon_bottom_bar: ^3.1.0
   flutter_advanced_drawer: ^1.2.3
-  google_fonts:
+  google_fonts: 2.2.0
   flutter_icons: ^1.1.0
   fl_chart: ^0.36.3
   shimmer: ^2.0.0
@@ -49,21 +49,20 @@ dependencies:
   #file_picker: ^4.0.0
   #image_picker: ^0.6.1+4
   #image_picker: ^0.6.5
-  image_picker: ^0.7.3
-  #image_picker: ^0.8.4
+#  image_picker: ^0.7.3
+  image_picker: ^0.8.0
   animated_radio_buttons: ^1.0.0
   intl: ^0.17.0
   location: ^4.2.0
   share_plus: ^2.1.4
   package_info: ^2.0.2
-  charts_flutter: ^0.11.0
   chart_components: ^1.0.1
   qr_code_scanner: ^0.4.0
   connectivity: ^3.0.6
   flutter_barcode_scanner: ^2.0.0
   date_time_picker: ^2.1.0
   expandable: ^5.0.1
-  awesome_notifications: any
+  awesome_notifications: 0.6.20
   firebase_messaging: ^11.2.5
   firebase_core: ^1.0.1
   firebase_auth: ^1.0.1
@@ -73,7 +72,7 @@ dependencies:
   #flutter_colorpicker: ^0.4.0
   flutter_colorpicker: ^1.0.3
   overlay_dialog: ^0.2.1
-  image_pickers: ^2.0.0+2
+  image_pickers: 2.0.0+2
   rotated_corner_decoration: ^2.0.0
   flutter_balloon_slider: ^0.1.1
   #camera: ^0.9.0
@@ -89,6 +88,7 @@ dependencies:
   google_sign_in: ^5.0.4
   contacts_service: ^0.6.3
   permission_handler: any
+  charts_flutter: 0.11.0
 
 
 
@@ -107,6 +107,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_native_splash: ^1.2.1
+  flutter_lints: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

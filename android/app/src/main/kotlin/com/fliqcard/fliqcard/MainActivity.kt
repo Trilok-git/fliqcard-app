@@ -1,0 +1,6 @@
+package com.fliqcard.fliqcard
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
