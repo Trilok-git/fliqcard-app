@@ -503,9 +503,9 @@ class _MainScreenState extends State<MainScreen> {
       key: _scaffoldKey,
       backgroundColor: Color(COLOR_BACKGROUND),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: Size.fromHeight(65),
         child: Container(
-          padding: EdgeInsets.only(top: 25),
+          padding: EdgeInsets.only(top: 35),
           color: Color(COLOR_PRIMARY),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -522,6 +522,45 @@ class _MainScreenState extends State<MainScreen> {
                         Icons.menu,
                         color: Colors.white,
                       ),
+                    ),
+                  ),
+                  providerListener.memberShip != null
+                      ? SizedBox()
+                  :GestureDetector(
+                    onTap: (){
+                      providerListener.ActivatePlan("Trial Month","EXECUTIVE","11111","USD").then((value) {
+                        Provider.of<CustomViewModel>(context, listen: false)
+                            .getData()
+                            .then((value) async {
+                          _refreshController.refreshCompleted();
+                        });
+                      });
+                    },
+                    child: Container(
+                      // height: 30,
+                      margin: EdgeInsets.only(left:10),
+                      padding: EdgeInsets.symmetric(horizontal: 7,vertical: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xffcebb6e),
+                            Color(0xffFCDC5A),
+                            Color(0xffFCDC5A),
+                            Color(0xffcebb6e),
+                          ],
+                          stops: [0,0.4,0.8,1]
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset("assets/active_plan.png",height: 17),
+                          SizedBox(width: 7),
+                          Text("Try Now",style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
+                        ],
+                      )
                     ),
                   )
                 ],
@@ -2302,7 +2341,7 @@ class _MainScreenState extends State<MainScreen> {
                                 onChanged: (value) {
                                   providerListener.selectedYear = value;
                                   Provider.of<CustomViewModel>(context, listen: false)
-                                      .getData(value).then((value) {});
+                                      .getData(value);
                                 },
                                 items: providerListener.ListOfYears.map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
