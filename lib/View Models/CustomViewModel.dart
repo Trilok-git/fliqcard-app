@@ -97,6 +97,10 @@ class CustomViewModel extends ChangeNotifier {
 
   List<StaffListParser> staffList = [];
 
+  List positionList = [];
+  List<String> positionOptions = [];
+  String selectedPosition = "";
+
   List<StaffListParser> teamList = [];
 
   List<AnalyticsParser> analyticsList = [];
@@ -285,6 +289,7 @@ class CustomViewModel extends ChangeNotifier {
     this.contactsListPhonesOnly.clear();
     this.transactionsList.clear();
     this.staffList.clear();
+    this.positionList.clear();
     this.teamList.clear();
     this.TotalVisits = 0;
     this.TotalSaved = 0;
@@ -484,12 +489,12 @@ class CustomViewModel extends ChangeNotifier {
     }
   }
 
-  Future updateStaff(String id, String fullname, String department,
+  Future updateStaff(String id, String fullname, String department, String position,
       String phone, String email, String password) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     final response = await WebService().updateStaff(id, prefs.getString('id'),
-        fullname, department, phone, email, password);
+        fullname, department, position, phone, email, password);
 
     if (response != "error") {
       var responseDecoded = jsonDecode(utf8.decode(response.bodyBytes));
@@ -575,6 +580,10 @@ class CustomViewModel extends ChangeNotifier {
       return "error";
     }
   }
+
+
+
+
 
   Future DeletStaff(String id) async {
     final response = await WebService().DeletStaff(id);
@@ -2499,4 +2508,72 @@ class CustomViewModel extends ChangeNotifier {
       return "error";
     }
   }
+
+  updatePosition(String position, int insert, int delete) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final response = await WebService().updatePosition(prefs.getString('id'),
+        position, insert, delete);
+
+    if (response != "error") {
+      var responseDecoded = jsonDecode(utf8.decode(response.bodyBytes));
+      var responseDecodedStatus = responseDecoded['status'];
+      var responseDecodedData = responseDecoded['data'].toString();
+
+      if (responseDecodedStatus == "false") {
+        notifyListeners();
+        return responseDecodedData;
+      } else if (responseDecodedStatus == "true") {
+        notifyListeners();
+        getLatestStaffs();
+        return "success";
+      } else {
+        notifyListeners();
+        return "error";
+      }
+    } else {
+      print("***error");
+      notifyListeners();
+      return "error";
+    }
+  }
+
+  getPosition() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    this.positionList.clear();
+
+    final response = await WebService().getPosition(prefs.getString('id'),
+        0, 0, 1);
+
+    if (response != "error") {
+      var responseDecoded = jsonDecode(utf8.decode(response.bodyBytes));
+      var responseDecodedStatus = responseDecoded['status'];
+      var responseDecodedData = responseDecoded['data'];
+
+      if (responseDecodedStatus == "false") {
+        notifyListeners();
+        return responseDecodedData;
+      } else if (responseDecodedStatus == "true") {
+        notifyListeners();
+        print("yooooooooooooooooo");
+        print(responseDecodedData.toString());
+        this.positionList = responseDecodedData;
+        return "success";
+      } else {
+        notifyListeners();
+        return "error";
+      }
+    } else {
+      print("***error");
+      notifyListeners();
+      return "error";
+    }
+  }
+
+  deletePosition(int id, int insert, int delete) {
+
+  }
+
+
 }

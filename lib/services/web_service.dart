@@ -192,13 +192,14 @@ class WebService {
   }
 
   Future updateStaff(String id, String parent_id, String fullname,
-      String department, String phone, String email, String password) async {
+      String department, String position, String phone, String email, String password) async {
     try {
       Map data = {
         "id": id,
         "fullname": fullname,
         "parent_id": parent_id,
         "department": department,
+        "position": position,
         "phone": phone,
         "email": email,
         "password": password
@@ -1941,4 +1942,72 @@ class WebService {
       print("exception" + Exception.toString());
     }
   }
+
+  updatePosition(String id, String position, int insert, int delete) async {
+    try {
+      Map data = {};
+      if(delete == 1) {
+        data = {
+          "parent_id": id,
+          "id": position,
+          "insert": insert,
+          "delete": delete,
+        };
+      }else {
+        data = {
+          "parent_id": id,
+          "position": position,
+          "insert": insert,
+          "delete": delete,
+        };
+      }
+
+      var body = json.encode(data);
+      print("aaaaaaaaaaaaaaaaaaaaa");
+      print(body);
+
+      final response = await http.post(Uri.parse(updateposition),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: body);
+
+      if (response.statusCode == 200) {
+        return response;
+      } else {
+        return "error";
+      }
+    } catch (Exception) {
+      print("exception" + Exception.toString());
+    }
+  }
+
+  getPosition(String id, int insert, int delete, int get) async {
+    try {
+      Map data = {
+        "parent_id": id,
+        "insert": insert,
+        "delete": delete,
+        "get": get
+      };
+
+      var body = json.encode(data);
+      print(body);
+
+      final response = await http.post(Uri.parse(updateposition),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: body);
+
+      if (response.statusCode == 200) {
+        return response;
+      } else {
+        return "error";
+      }
+    } catch (Exception) {
+      print("exception" + Exception.toString());
+    }
+  }
+
 }

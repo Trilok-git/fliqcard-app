@@ -45,6 +45,7 @@ const updateContact = apiUrl + "/updateContact_28nov.php";
 
 const deletecontact = apiUrl + "/deleteContact.php";
 const updatestaff = apiUrl + "/updatestaff.php";
+const updateposition = apiUrl + "/addPosition.php";
 const deletestaff = apiUrl + "/deletestaff.php";
 const changepassword = apiUrl + "/changepassword.php";
 const addeditcard = apiUrl + "/vcard.php";
