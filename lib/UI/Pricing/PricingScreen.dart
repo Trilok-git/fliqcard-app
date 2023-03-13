@@ -6,10 +6,12 @@ import 'package:fliqcard/Helpers/size_config.dart';
 import 'package:fliqcard/View%20Models/CustomViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'AndroidPremiumWebScreen.dart';
+import 'paymentSuccessWebScreen.dart';
 
 SharedPreferences prefs;
 
@@ -24,6 +26,12 @@ class PricingScreen extends StatefulWidget {
 
 class _PricingScreenState extends State<PricingScreen> {
   String selectedPlan = "";
+  String selectedPrice = "";
+
+
+  List<PaymentItem> _paymentItems = [];
+
+
 
   @override
   void initState() {
@@ -36,76 +44,78 @@ class _PricingScreenState extends State<PricingScreen> {
 
     return SafeArea(
       child: Scaffold(
-        body: Platform.isIOS
-            ? Container(
-                height: SizeConfig.screenHeight,
-                width: SizeConfig.screenWidth,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color(COLOR_PRIMARY),
-                      Color(COLOR_PRIMARY),
-                      Color(COLOR_PURPLE_PRIMARY),
-                    ],
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 15),
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: Text(
-                        "You can't upgrade to premium in the app. We know, it's not ideal.",
-                        textAlign: TextAlign.start,
-                        style: GoogleFonts.montserrat(
-                          letterSpacing: 1,
-                          textStyle: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 10),
-                      child: Text(
-                        "Become a member and Enjoy unlimited exclusive deals and more!",
-                        textAlign: TextAlign.start,
-                        style: GoogleFonts.montserrat(
-                          letterSpacing: 1,
-                          textStyle: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.yellow.shade200,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: Text(
-                        "Please Visit FliQCard.com",
-                        textAlign: TextAlign.start,
-                        style: GoogleFonts.montserrat(
-                          letterSpacing: 1,
-                          textStyle: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            : Container(
+        body:
+        // body: Platform.isIOS
+        //     ? Container(
+        //         height: SizeConfig.screenHeight,
+        //         width: SizeConfig.screenWidth,
+        //         decoration: BoxDecoration(
+        //           gradient: LinearGradient(
+        //             begin: Alignment.topLeft,
+        //             end: Alignment.bottomRight,
+        //             colors: [
+        //               Color(COLOR_PRIMARY),
+        //               Color(COLOR_PRIMARY),
+        //               Color(COLOR_PURPLE_PRIMARY),
+        //             ],
+        //           ),
+        //         ),
+        //         child: Column(
+        //           crossAxisAlignment: CrossAxisAlignment.start,
+        //           children: [
+        //             SizedBox(height: 15),
+        //             Padding(
+        //               padding: const EdgeInsets.all(30.0),
+        //               child: Text(
+        //                 "You can't upgrade to premium in the app. We know, it's not ideal.",
+        //                 textAlign: TextAlign.start,
+        //                 style: GoogleFonts.montserrat(
+        //                   letterSpacing: 1,
+        //                   textStyle: TextStyle(
+        //                     fontSize: 14.0,
+        //                     fontWeight: FontWeight.w600,
+        //                     color: Colors.white,
+        //                   ),
+        //                 ),
+        //               ),
+        //             ),
+        //             Padding(
+        //               padding: const EdgeInsets.symmetric(
+        //                   horizontal: 30, vertical: 10),
+        //               child: Text(
+        //                 "Become a member and Enjoy unlimited exclusive deals and more!",
+        //                 textAlign: TextAlign.start,
+        //                 style: GoogleFonts.montserrat(
+        //                   letterSpacing: 1,
+        //                   textStyle: TextStyle(
+        //                     fontSize: 18.0,
+        //                     fontWeight: FontWeight.w600,
+        //                     color: Colors.yellow.shade200,
+        //                   ),
+        //                 ),
+        //               ),
+        //             ),
+        //             SizedBox(height: 20),
+        //             Padding(
+        //               padding: const EdgeInsets.all(30.0),
+        //               child: Text(
+        //                 "Please Visit FliQCard.com",
+        //                 textAlign: TextAlign.start,
+        //                 style: GoogleFonts.montserrat(
+        //                   letterSpacing: 1,
+        //                   textStyle: TextStyle(
+        //                     fontSize: 16.0,
+        //                     fontWeight: FontWeight.w600,
+        //                     color: Colors.white,
+        //                   ),
+        //                 ),
+        //               ),
+        //             ),
+        //           ],
+        //         ),
+        //       )
+        //     :
+        Container(
                 height: SizeConfig.screenHeight,
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
@@ -174,7 +184,24 @@ class _PricingScreenState extends State<PricingScreen> {
                       SizedBox(height: 30),
                       InkWell(
                         onTap: () {
-                          push(context, AndroidPremiumWebScreen(widget.temp));
+                          if(Platform.isIOS) {
+                            setState(() {
+                              selectedPlan = "EXECUTIVE";
+                              selectedPrice = '30.00';
+                              _paymentItems = [
+                                PaymentItem(
+                                  label: selectedPlan,
+                                  amount: selectedPrice,
+                                  status: PaymentItemStatus.final_price,
+                                )
+                              ];
+                            });
+                            print(selectedPrice);
+                            print(_paymentItems[0].label);
+                            print(_paymentItems[0].amount);
+                          }else {
+                            push(context, AndroidPremiumWebScreen(widget.temp));
+                          }
                         },
                         child: Center(
                           child: Container(
@@ -225,19 +252,12 @@ class _PricingScreenState extends State<PricingScreen> {
                                         ),
                                       ),
                                     ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          selectedPlan = "EXECUTIVE";
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 10),
-                                        child: Icon(
-                                          Icons.info,
-                                          color: Colors.yellow.shade800,
-                                        ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 10),
+                                      child: Icon(
+                                        Icons.info,
+                                        color: Colors.yellow.shade800,
                                       ),
                                     ),
                                   ],
@@ -250,7 +270,24 @@ class _PricingScreenState extends State<PricingScreen> {
                       SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          push(context, AndroidPremiumWebScreen(widget.temp));
+                          if(Platform.isIOS) {
+                            setState(() {
+                              selectedPlan = "E - COMM";
+                              selectedPrice = "42.00";
+                              _paymentItems = [
+                                PaymentItem(
+                                  label: selectedPlan,
+                                  amount: selectedPrice,
+                                  status: PaymentItemStatus.final_price
+                                )
+                              ];
+                            });
+                            print(selectedPrice);
+                            print(_paymentItems[0].label);
+                            print(_paymentItems[0].amount);
+                          }else {
+                            push(context, AndroidPremiumWebScreen(widget.temp));
+                          }
                         },
                         child: Center(
                           child: Container(
@@ -301,19 +338,12 @@ class _PricingScreenState extends State<PricingScreen> {
                                         ),
                                       ),
                                     ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          selectedPlan = "E - COMM";
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 10),
-                                        child: Icon(
-                                          Icons.info,
-                                          color: Colors.yellow.shade800,
-                                        ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 10),
+                                      child: Icon(
+                                        Icons.info,
+                                        color: Colors.yellow.shade800,
                                       ),
                                     ),
                                   ],
@@ -326,7 +356,21 @@ class _PricingScreenState extends State<PricingScreen> {
                       SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          push(context, AndroidPremiumWebScreen(widget.temp));
+                          if(Platform.isIOS) {
+                            setState(() {
+                              selectedPlan = "CORPORATE";
+                              selectedPrice = "126.00";
+                              _paymentItems = [
+                                PaymentItem(
+                                  label: selectedPlan,
+                                  amount: selectedPrice,
+                                  status: PaymentItemStatus.final_price,
+                                )
+                              ];
+                            });
+                          }else {
+                            push(context, AndroidPremiumWebScreen(widget.temp));
+                          }
                         },
                         child: Center(
                           child: Container(
@@ -377,19 +421,12 @@ class _PricingScreenState extends State<PricingScreen> {
                                         ),
                                       ),
                                     ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          selectedPlan = "CORPORATE";
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 10),
-                                        child: Icon(
-                                          Icons.info,
-                                          color: Colors.yellow.shade800,
-                                        ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 10),
+                                      child: Icon(
+                                        Icons.info,
+                                        color: Colors.yellow.shade800,
                                       ),
                                     ),
                                   ],
@@ -402,7 +439,9 @@ class _PricingScreenState extends State<PricingScreen> {
                       SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          push(context, AndroidPremiumWebScreen(widget.temp));
+                          setState(() {
+                            selectedPlan = "CORPORATE PLUS+";
+                          });
                         },
                         child: Center(
                           child: Container(
@@ -453,19 +492,12 @@ class _PricingScreenState extends State<PricingScreen> {
                                         ),
                                       ),
                                     ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          selectedPlan = "CORPORATE PLUS+";
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 10),
-                                        child: Icon(
-                                          Icons.info,
-                                          color: Colors.yellow.shade800,
-                                        ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 10),
+                                      child: Icon(
+                                        Icons.info,
+                                        color: Colors.yellow.shade800,
                                       ),
                                     ),
                                   ],
@@ -575,61 +607,93 @@ class _PricingScreenState extends State<PricingScreen> {
                               ),
                             ),
                       SizedBox(height: 45),
-                      InkWell(
-                        onTap: () {
-                          push(context, AndroidPremiumWebScreen(widget.temp));
-                        },
-                        child: Center(
-                          child: Container(
-                            height: 45,
-                            width: SizeConfig.screenWidth / 1.5,
-                            decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(50),
+                      selectedPlan == ""
+                          ? Container()
+                          : Platform.isIOS && selectedPlan != "CORPORATE PLUS+"?
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ApplePayButton(
+                                  paymentConfigurationAsset: 'apple pay/applepay.json',
+                                  paymentItems: _paymentItems,
+                                  style: ApplePayButtonStyle.black,
+                                  type: ApplePayButtonType.checkout,
+                                  width: 200,
+                                  height: 50,
+                                  margin: const EdgeInsets.only(top: 15.0),
+                                  onPaymentResult: (value) {
+                                    print(value);
+                                    push(context, PaymentSuccessWebScreen(selectedPlan,selectedPrice,widget.temp));
+                                  },
+                                  onError: (error) {
+                                    pop(context);
+                                    commonToast(context, "something went wrong");
+                                    print(error);
+                                  },
+                                  loadingIndicator: const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
                                 ),
-                                border:
-                                    Border.all(width: 2, color: Colors.white)),
-                            child: Center(
-                              child: Text(
-                                "Upgrade Plan",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
+                              ],
+                            )
+                          :InkWell(
                             onTap: () {
-                              commonLaunchURL(
-                                  "https://fliqcard.com/digitalcard/terms.php");
+                              push(context, AndroidPremiumWebScreen(widget.temp));
                             },
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 15, right: 10, top: 20),
-                              child: Text(
-                                "T&C apply",
-                                textAlign: TextAlign.start,
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 0.7,
-                                  textStyle: TextStyle(
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.white,
+                            child: Center(
+                              child: Container(
+                                height: 45,
+                                width: SizeConfig.screenWidth / 1.5,
+                                decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(50),
+                                    ),
+                                    border:
+                                        Border.all(width: 2, color: Colors.white)),
+                                child: Center(
+                                  child: Text(
+                                    "Upgrade Plan",
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                      selectedPlan == ""
+                          ? Container()
+                          : Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  commonLaunchURL(
+                                      "https://fliqcard.com/digitalcard/terms.php");
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 15, right: 10, top: 20),
+                                  child: Text(
+                                    "T&C apply",
+                                    textAlign: TextAlign.start,
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 0.7,
+                                      textStyle: TextStyle(
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.w300,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                       SizedBox(height: 45),
                     ],
                   ),

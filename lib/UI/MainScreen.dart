@@ -1265,11 +1265,11 @@ class _MainScreenState extends State<MainScreen> {
                           pop(context);
                           push(context, CardListing());
                         } else {
-                          if (Platform.isAndroid) {
+                          // if (Platform.isAndroid) {
                             push(context, PricingScreen(1));
-                          } else {
-                            commonToast(context, "Visit fliqcard.com");
-                          }
+                          // } else {
+                          //   commonToast(context, "Visit fliqcard.com");
+                          // }
                         }
                       },
                       child: Row(
@@ -1331,12 +1331,12 @@ class _MainScreenState extends State<MainScreen> {
                                         pop(context);
                                         push(context, AllInterestSListScreen());
                                       } else {
-                                        if (Platform.isAndroid) {
+                                        // if (Platform.isAndroid) {
                                           push(context, PricingScreen(1));
-                                        } else {
-                                          commonToast(
-                                              context, "Visit fliqcard.com");
-                                        }
+                                        // } else {
+                                        //   commonToast(
+                                        //       context, "Visit fliqcard.com");
+                                        // }
                                       }
                                     },
                                     child: Row(
@@ -1397,12 +1397,12 @@ class _MainScreenState extends State<MainScreen> {
                                         pop(context);
                                         push(context, AllOrdersListScreen());
                                       } else {
-                                        if (Platform.isAndroid) {
+                                        // if (Platform.isAndroid) {
                                           push(context, PricingScreen(1));
-                                        } else {
-                                          commonToast(
-                                              context, "Visit fliqcard.com");
-                                        }
+                                        // } else {
+                                        //   commonToast(
+                                        //       context, "Visit fliqcard.com");
+                                        // }
                                       }
                                     },
                                     child: Row(
@@ -1444,11 +1444,11 @@ class _MainScreenState extends State<MainScreen> {
                           pop(context);
                           push(context, StaffListScreen());
                         } else {
-                          if (Platform.isAndroid) {
+                          // if (Platform.isAndroid) {
                             push(context, PricingScreen(1));
-                          } else {
-                            commonToast(context, "Visit fliqcard.com");
-                          }
+                          // } else {
+                          //   commonToast(context, "Visit fliqcard.com");
+                          // }
                         }
                       },
                       child: Row(
@@ -1479,11 +1479,11 @@ class _MainScreenState extends State<MainScreen> {
                                 pop(context);
                                 push(context, TeamListScreen());
                               } else {
-                                if (Platform.isAndroid) {
+                                // if (Platform.isAndroid) {
                                   push(context, PricingScreen(1));
-                                } else {
-                                  commonToast(context, "Visit fliqcard.com");
-                                }
+                                // } else {
+                                //   commonToast(context, "Visit fliqcard.com");
+                                // }
                               }
                             },
                             child: Row(
@@ -1639,11 +1639,12 @@ class _MainScreenState extends State<MainScreen> {
                                                 ? providerListener.memberShip !=
                                                         null
                                                     ? print("already member")
-                                                    : Platform.isAndroid
-                                                        ? push(context,
+                                                    :
+                                                        // Platform.isAndroid ?
+                                                          push(context,
                                                             PricingScreen(1))
-                                                        : commonToast(context,
-                                                            "Visit fliqcard.com")
+                                                        // : commonToast(context,
+                                                        //     "Visit fliqcard.com")
                                                 : print("staff");
                                           },
                                           child: Card(
@@ -1703,17 +1704,18 @@ class _MainScreenState extends State<MainScreen> {
                                                                     "CORPORATE"
                                                             ? InkWell(
                                                                 onTap: () {
-                                                                  if (Platform
-                                                                      .isAndroid) {
+                                                                  // if (Platform
+                                                                  //     .isAndroid) {
                                                                     push(
                                                                         context,
                                                                         PricingScreen(
                                                                             1));
-                                                                  } else {
-                                                                    commonToast(
-                                                                        context,
-                                                                        "Visit fliqcard.com");
-                                                                  }
+                                                                  // } else {
+                                                                  //
+                                                                  //   commonToast(
+                                                                  //       context,
+                                                                  //       "Visit fliqcard.com");
+                                                                  // }
                                                                 },
                                                                 child: ListTile(
                                                                   leading:
@@ -1875,18 +1877,20 @@ class _MainScreenState extends State<MainScreen> {
                                       context,
                                       MyCalendarScreen(apiUrl +
                                           "/../invites/mycalendar/?user_id=" +
-                                          (providerListener.userData.id
-                                              .toString())));
+                                          (providerListener.userData.id.toString())+
+                                          "&current_usr_email="+ providerListener.userData.email));
                                   /*_launchURL(apiUrl +
                                         "/../invites/mycalendar/?user_id=" +
                                         (providerListener.userData.id
                                             .toString()));*/
                                 } else {
-                                  if (Platform.isAndroid) {
+                                  // if (Platform.isAndroid) {
                                     push(context, PricingScreen(1));
-                                  } else {
-                                    commonToast(context, "Visit fliqcard.com");
-                                  }
+                                  // } else {
+                                  //   push(context, PricingScreen(1));
+                                  //   print("iosssssss");
+                                  //   commonToast(context, "Visit fliqcard.com");
+                                  // }
                                 }
                               },
                               child: Card(
@@ -1961,11 +1965,11 @@ class _MainScreenState extends State<MainScreen> {
                                     providerListener.memberShip != null) {
                                   push(context, ListOfAppointment());
                                 } else {
-                                  if (Platform.isAndroid) {
+                                  // if (Platform.isAndroid) {
                                     push(context, PricingScreen(1));
-                                  } else {
-                                    commonToast(context, "Visit fliqcard.com");
-                                  }
+                                  // } else {
+                                  //   commonToast(context, "Visit fliqcard.com");
+                                  // }
                                 }
                               },
                               child: Card(
@@ -2046,11 +2050,11 @@ class _MainScreenState extends State<MainScreen> {
                                     providerListener.memberShip != null) {
                                   push(context, ListOfEvents());
                                 } else {
-                                  if (Platform.isAndroid) {
+                                  // if (Platform.isAndroid) {
                                     push(context, PricingScreen(1));
-                                  } else {
-                                    commonToast(context, "Visit fliqcard.com");
-                                  }
+                                  // } else {
+                                  //   commonToast(context, "Visit fliqcard.com");
+                                  // }
                                 }
                               },
                               child: Card(

@@ -15,8 +15,9 @@ SharedPreferences prefs;
 
 class AndroidPremiumWebScreen extends StatefulWidget {
   int temp;
+  String selectedPlan;
 
-  AndroidPremiumWebScreen(this.temp);
+  AndroidPremiumWebScreen(this.temp, [this.selectedPlan]);
 
   @override
   _AndroidPremiumWebScreenState createState() =>
@@ -57,34 +58,66 @@ class _AndroidPremiumWebScreenState extends State<AndroidPremiumWebScreen> {
           ),
         ),
         body: Container(
-          child: WebView(
-            initialUrl:
-                ("https://fliqcard.com/digitalcard/pricing2.php?ios=no&id=" +
-                    (providerListener.userData.id ?? "") +
-                    "&refcode=" +
-                    (providerListener.userData.refcode ?? "")),
-            javascriptMode: JavascriptMode.unrestricted,
-            onPageStarted: (String url) {
-              print('Page started loading: $url');
-              if ((url ?? "") == "https://fliqcard.com/digitalcard/" ||
-                  (url ?? "") == "https://fliqcard.com/digitalcard/index.php") {
-                if (widget.temp == 2) {
-                  pop(context);
-                  pop(context);
-                  pop(context);
-                } else {
-                  pop(context);
-                  pop(context);
-                }
+          child:
+          Platform.isIOS?
+            WebView(
+              initialUrl:
+              ("https://fliqcard.com/digitalcard/pricing2.php?ios=yes&id=" +
+                  (providerListener.userData.id ?? "") +
+                  "&refcode=" +
+                  (providerListener.userData.refcode ?? "")),
+              javascriptMode: JavascriptMode.unrestricted,
+              onPageStarted: (String url) {
+                print('Page started loading: $url');
+                if ((url ?? "") == "https://fliqcard.com/digitalcard/" ||
+                    (url ?? "") == "https://fliqcard.com/digitalcard/index.php") {
+                  if (widget.temp == 2) {
+                    pop(context);
+                    pop(context);
+                    pop(context);
+                  } else {
+                    pop(context);
+                    pop(context);
+                  }
 
-                pushReplacement(context, WelcomeScreen());
-              }
-            },
-            onPageFinished: (String url) {
-              print('Page finished loading: $url');
-            },
-            gestureNavigationEnabled: true,
-          ),
+                  pushReplacement(context, WelcomeScreen());
+                }
+              },
+              onPageFinished: (String url) {
+                print('Page finished loading: $url');
+              },
+              gestureNavigationEnabled: true,
+            )
+
+            :
+          WebView(
+              initialUrl:
+                  ("https://fliqcard.com/digitalcard/pricing2.php?ios=no&id=" +
+                      (providerListener.userData.id ?? "") +
+                      "&refcode=" +
+                      (providerListener.userData.refcode ?? "")),
+              javascriptMode: JavascriptMode.unrestricted,
+              onPageStarted: (String url) {
+                print('Page started loading: $url');
+                if ((url ?? "") == "https://fliqcard.com/digitalcard/" ||
+                    (url ?? "") == "https://fliqcard.com/digitalcard/index.php") {
+                  if (widget.temp == 2) {
+                    pop(context);
+                    pop(context);
+                    pop(context);
+                  } else {
+                    pop(context);
+                    pop(context);
+                  }
+
+                  pushReplacement(context, WelcomeScreen());
+                }
+              },
+              onPageFinished: (String url) {
+                print('Page finished loading: $url');
+              },
+              gestureNavigationEnabled: true,
+            ),
         ),
       ),
     );

@@ -1,0 +1,22 @@
+{
+  "provider": "apple_pay",
+  "data": {
+    "merchantIdentifier": "merchant.com.fliqcard.app",
+    "displayName": "FliqCard",
+    "merchantCapabilities": [
+      "3DS",
+      "debit",
+      "credit"
+    ],
+    "supportedNetworks": [
+      "amex",
+      "visa",
+      "discover",
+      "masterCard"
+    ],
+    "countryCode": "OM",
+    "currencyCode": "USD",
+    "requiredBillingContactFields": ["email", "phone", "name"],
+    "requiredShippingContactFields": null
+  }
+}
