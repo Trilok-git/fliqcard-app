@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'AndroidPremiumWebScreen.dart';
 import 'paymentSuccessWebScreen.dart';
@@ -32,11 +33,13 @@ class _PricingScreenState extends State<PricingScreen> {
   List<PaymentItem> _paymentItems = [];
 
 
-
   @override
   void initState() {
     super.initState();
   }
+
+  void launchURL(url) async =>
+      await canLaunch(url) ? await launch(url) : commonToast(context, 'Could not launch $url');
 
   @override
   Widget build(BuildContext context) {
@@ -637,34 +640,68 @@ class _PricingScreenState extends State<PricingScreen> {
                                 ),
                               ],
                             )
-                          :InkWell(
-                            onTap: () {
-                              push(context, AndroidPremiumWebScreen(widget.temp));
-                            },
-                            child: Center(
-                              child: Container(
-                                height: 45,
-                                width: SizeConfig.screenWidth / 1.5,
-                                decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(50),
-                                    ),
-                                    border:
-                                        Border.all(width: 2, color: Colors.white)),
+                          : Platform.isIOS ?
+                              InkWell(
+                                onTap: () {
+                                  String url = "https://fliqcard.com/digitalcard/pricing2.php?ios=yes&id=" +
+                                      (providerListener.userData.id ?? "") +
+                                      "&refcode=" +
+                                      (providerListener.userData.refcode ?? "");
+                                  launchURL(url);
+                                  // push(context, AndroidPremiumWebScreen(widget.temp));
+                                },
                                 child: Center(
-                                  child: Text(
-                                    "Upgrade Plan",
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
+                                  child: Container(
+                                    height: 45,
+                                    width: SizeConfig.screenWidth / 1.5,
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(50),
+                                        ),
+                                        border:
+                                            Border.all(width: 2, color: Colors.white)),
+                                    child: Center(
+                                      child: Text(
+                                        "Upgrade Plan",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                          : InkWell(
+                              onTap: () {
+                                push(context, AndroidPremiumWebScreen(widget.temp));
+                              },
+                              child: Center(
+                                child: Container(
+                                  height: 45,
+                                  width: SizeConfig.screenWidth / 1.5,
+                                  decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(50),
+                                      ),
+                                      border:
+                                      Border.all(width: 2, color: Colors.white)),
+                                  child: Center(
+                                    child: Text(
+                                      "Upgrade Plan",
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
                       selectedPlan == ""
                           ? Container()
                           : Row(
