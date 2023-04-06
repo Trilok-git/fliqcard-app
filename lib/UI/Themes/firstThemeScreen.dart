@@ -719,7 +719,7 @@ class _firstThemeScreenState extends State<firstThemeScreen> {
                                       SizedBox(
                                         height: 10.0,
                                       ),
-                                      InkWell(
+            providerListener.vcardData.phone.isNotEmpty?InkWell(
                                         onTap: () {
                                           _launchURL("tel:" +
                                                   providerListener
@@ -745,7 +745,8 @@ class _firstThemeScreenState extends State<firstThemeScreen> {
                                             ),
                                           ],
                                         ),
-                                      ),
+                                      )
+                                    : SizedBox(),
                                       Divider(
                                         thickness: 1,
                                         color: Color(int.parse(providerListener

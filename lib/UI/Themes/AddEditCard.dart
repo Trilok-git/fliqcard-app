@@ -278,7 +278,8 @@ class _AddEditCardState extends State<AddEditCard> {
             wechatController.text ?? "",
             tiktokController.text ?? "",
             pinterestController.text ?? "",
-            (country1) + " " + phoneController.text ?? "",
+            phoneController.text.isNotEmpty? (country1) + " " + phoneController.text : "",
+            // (country1) + " " + phoneController.text ?? "",
             phone2Controller.text.isEmpty
                 ? ""
                 : ((country2) + " " + phone2Controller.text ?? ""),
