@@ -15,26 +15,8 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		BB01F32629AF69C000E926A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB01F32529AF69C000E926A2 /* GoogleService-Info.plist */; };
-		BB7A4A9B29D5AD9000F78CFE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7A4A9A29D5AD9000F78CFE /* WidgetKit.framework */; };
-		BB7A4A9D29D5AD9000F78CFE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7A4A9C29D5AD9000F78CFE /* SwiftUI.framework */; };
-		BB7A4AA029D5AD9000F78CFE /* fliqcard_widgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A4A9F29D5AD9000F78CFE /* fliqcard_widgetBundle.swift */; };
-		BB7A4AA229D5AD9000F78CFE /* fliqcard_widgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A4AA129D5AD9000F78CFE /* fliqcard_widgetLiveActivity.swift */; };
-		BB7A4AA429D5AD9000F78CFE /* fliqcard_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7A4AA329D5AD9000F78CFE /* fliqcard_widget.swift */; };
-		BB7A4AA729D5AD9100F78CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB7A4AA629D5AD9100F78CFE /* Assets.xcassets */; };
-		BB7A4AA929D5AD9100F78CFE /* fliqcard_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BB7A4AA529D5AD9000F78CFE /* fliqcard_widget.intentdefinition */; };
 		BB7A4AAA29D5AD9100F78CFE /* fliqcard_widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BB7A4AA529D5AD9000F78CFE /* fliqcard_widget.intentdefinition */; };
-		BB7A4AAD29D5AD9100F78CFE /* fliqcard_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BB7A4A9929D5AD9000F78CFE /* fliqcard_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BB7A4AAB29D5AD9100F78CFE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB7A4A9829D5AD9000F78CFE;
-			remoteInfo = fliqcard_widgetExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
@@ -53,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BB7A4AAD29D5AD9100F78CFE /* fliqcard_widgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,7 +60,6 @@
 		B8937835C23136B814BEB448 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		BB01F32529AF69C000E926A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB0CA8D029BF081400A15406 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
-		BB7A4A9929D5AD9000F78CFE /* fliqcard_widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = fliqcard_widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7A4A9A29D5AD9000F78CFE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		BB7A4A9C29D5AD9000F78CFE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		BB7A4A9F29D5AD9000F78CFE /* fliqcard_widgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fliqcard_widgetBundle.swift; sourceTree = "<group>"; };
@@ -98,15 +78,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				861C08FC656FBBFA5EE751F1 /* Pods_Runner.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB7A4A9629D5AD9000F78CFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB7A4A9D29D5AD9000F78CFE /* SwiftUI.framework in Frameworks */,
-				BB7A4A9B29D5AD9000F78CFE /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
-				BB7A4A9929D5AD9000F78CFE /* fliqcard_widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,29 +187,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				BB7A4AAC29D5AD9100F78CFE /* PBXTargetDependency */,
 			);
 			name = Runner;
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
 			productType = "com.apple.product-type.application";
-		};
-		BB7A4A9829D5AD9000F78CFE /* fliqcard_widgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BB7A4AB229D5AD9200F78CFE /* Build configuration list for PBXNativeTarget "fliqcard_widgetExtension" */;
-			buildPhases = (
-				BB7A4A9529D5AD9000F78CFE /* Sources */,
-				BB7A4A9629D5AD9000F78CFE /* Frameworks */,
-				BB7A4A9729D5AD9000F78CFE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = fliqcard_widgetExtension;
-			productName = fliqcard_widgetExtension;
-			productReference = BB7A4A9929D5AD9000F78CFE /* fliqcard_widgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -254,9 +206,6 @@
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1100;
-					};
-					BB7A4A9829D5AD9000F78CFE = {
-						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -274,7 +223,6 @@
 			projectRoot = "";
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
-				BB7A4A9829D5AD9000F78CFE /* fliqcard_widgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -289,14 +237,6 @@
 				BB01F32629AF69C000E926A2 /* GoogleService-Info.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB7A4A9729D5AD9000F78CFE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB7A4AA729D5AD9100F78CFE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,26 +342,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB7A4A9529D5AD9000F78CFE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB7A4AA929D5AD9100F78CFE /* fliqcard_widget.intentdefinition in Sources */,
-				BB7A4AA229D5AD9000F78CFE /* fliqcard_widgetLiveActivity.swift in Sources */,
-				BB7A4AA029D5AD9000F78CFE /* fliqcard_widgetBundle.swift in Sources */,
-				BB7A4AA429D5AD9000F78CFE /* fliqcard_widget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BB7A4AAC29D5AD9100F78CFE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB7A4A9829D5AD9000F78CFE /* fliqcard_widgetExtension */;
-			targetProxy = BB7A4AAB29D5AD9100F78CFE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
@@ -503,7 +424,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = TTL664ZK2U;
 				ENABLE_BITCODE = "$(inherited)";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -513,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.64;
+				MARKETING_VERSION = 1.0.66;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fliqcard.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -640,7 +561,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = TTL664ZK2U;
 				ENABLE_BITCODE = "$(inherited)";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -650,7 +571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.64;
+				MARKETING_VERSION = 1.0.66;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fliqcard.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -671,7 +592,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = TTL664ZK2U;
 				ENABLE_BITCODE = "$(inherited)";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -681,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.64;
+				MARKETING_VERSION = 1.0.66;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fliqcard.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -690,120 +611,6 @@
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
-		};
-		BB7A4AAF29D5AD9100F78CFE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = fliqcard_widgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TTL664ZK2U;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = fliqcard_widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = fliqcard_widget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fliqcard.app.fliqcard-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		BB7A4AB029D5AD9100F78CFE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = fliqcard_widgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TTL664ZK2U;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = fliqcard_widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = fliqcard_widget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fliqcard.app.fliqcard-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BB7A4AB129D5AD9100F78CFE /* Profile */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = fliqcard_widgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TTL664ZK2U;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = fliqcard_widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = fliqcard_widget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fliqcard.app.fliqcard-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Profile;
 		};
 /* End XCBuildConfiguration section */
 
@@ -824,16 +631,6 @@
 				97C147061CF9000F007C117D /* Debug */,
 				97C147071CF9000F007C117D /* Release */,
 				249021D4217E4FDB00AE95B9 /* Profile */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BB7A4AB229D5AD9200F78CFE /* Build configuration list for PBXNativeTarget "fliqcard_widgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB7A4AAF29D5AD9100F78CFE /* Debug */,
-				BB7A4AB029D5AD9100F78CFE /* Release */,
-				BB7A4AB129D5AD9100F78CFE /* Profile */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
